@@ -1,4 +1,6 @@
-export const PasswordReInput = () => {
+import { memo } from "react"
+
+export const PasswordReInput = memo(() => {
     return(
         <form>
             <label>
@@ -7,4 +9,4 @@ export const PasswordReInput = () => {
             <input type="password" name="passwordReInput" />
         </form>
     );
-}
+});

@@ -3,9 +3,10 @@ import { EmailAddressInput } from "../component/inputForm/EmailAddressInput";
 import { PasswordInput } from "../component/inputForm/PasswordInput";
 import { PasswordReInput } from "../component/inputForm/PasswordReInput";
 import { NumberInput } from "../component/inputForm/NumberInput";
+import { memo } from "react";
 
 
-export const LoginPage = () => {
+export const LoginPage = memo(() => {
     return(
         <div>
             <TextName />
@@ -18,4 +19,4 @@ export const LoginPage = () => {
             <NumberInput />
         </div>
     );
-}
+});

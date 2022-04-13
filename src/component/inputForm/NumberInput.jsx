@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, memo} from "react";
 
-export const NumberInput = () => {
+export const NumberInput = memo(() => {
     const [number, setNumber] = useState();
 
     const numberErrorMassage = () =>{
@@ -16,4 +16,4 @@ export const NumberInput = () => {
             </label>
         </form>
     );
-}
+});

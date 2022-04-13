@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, memo } from "react"
 
-export const TextName = () => {
+export const TextName = memo(() => {
     const [name, setName] = useState('')
  
 
@@ -23,4 +23,4 @@ export const TextName = () => {
         </form>
         </div>
     );
-}
+});
