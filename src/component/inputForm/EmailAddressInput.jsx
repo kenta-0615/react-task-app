@@ -1,22 +1,22 @@
 import React from "react"
 import { useState, memo } from "react";
 
-export const EmailAddressInput = memo(() => {
+export const EmailAddressInput = memo((onSignup) => {
     const [email, setEmail] = useState('');
+    const isValid = email != null && email.trim().length > 0;
+    const handleSubmit = event => {
+        event.preventDefault();
+        onSignup({email});
+    }
 
-    const emailErrorMassage = () => {
-        if (!email) return '※メールアドレスを入力してください'
-        return ''
-}
 
     return(
-        <from>
+        <from onSubmit={handleSubmit}>
             <label>
                 Email:{email}
             </label>
-            <input type="email" name="email" id="email" onChange={(e) => {setEmail(e.target.value)}} onClick={() => {}} />
-            <p>{emailErrorMassage.length()}</p>
-            <button disabled={emailErrorMassage.length()}>Save</button>
+            <input type="email" required value={email} onChange={(e) => {setEmail(e.target.value)}} onClick={() => {}} />
+            <button disabled={!isValid}>Save</button>
         </from>
     );
 });

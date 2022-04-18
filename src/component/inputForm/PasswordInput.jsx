@@ -3,28 +3,51 @@ import { useState, memo } from "react";
 
 export const PasswordInput = memo(() => {
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const [state, setState] = useState('');
-    const handlePasswordChange = event => {
-        setPassword(event.target.value);
-    };
-    const handleSave = () => {
-        console.log(password);
-    }
+    const [confirm, setConfirm] = useState('');
 
-    const passwordErrorMessage = () => {
-        if(password.length <= 0) return 'パスワードを入力してください'
-    }
-
+    const bothFieldsAreFilled = password && confirm;
+    const passwordMatch = password === confirm;
 
     return(
-        <form action="/password" method="post">
+        <div>
+        <form>
             <label>
                 PASS:
             </label>
-            <input type="password" name="password" id="password" value={password} onChange={handlePasswordChange} />
-            {passwordErrorMessage().length > 0 && <p>{passwordErrorMessage}</p>}
-            <button onClick={handleSave}>Save</button>
+            <input type="password"
+                   name="password"
+                   value={password} 
+                   onChange={(e) => {setPassword(e.target.value)}} />
+            <button>Save</button>
         </form>
+        <form>
+            <label>
+                REPASS:
+            </label>
+            <input
+            type="password"
+            name="confirm"
+            value={confirm}
+            onChange={(e) => {setConfirm(e.target.value)}}
+            />
+            {bothFieldsAreFilled ?
+            (passwordMatch ?
+            (
+            <div>
+                <i>check_circle</i>
+                Password match
+            </div>
+
+            ) :
+            (
+                <div>
+                    <i>report</i>
+                    Password do not match
+                </div>
+            )
+            ) : null
+        }
+        </form>
+        </div>
     )
 });
