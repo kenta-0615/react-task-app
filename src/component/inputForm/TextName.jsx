@@ -2,12 +2,15 @@ import { useState, memo } from "react"
 
 export const TextName = memo(() => {
     const [name, setName] = useState('')
- 
+    console.log(name);
 
     const nameErrorMessage = ()=>{
         if(name.length <= 0) return "必須入力です"
+        console.log(name.length);
         if(name.length < 6 || name.length > 38) return "半角英数字のみ"
+        console.log(name.length);
         if(!/^[0-9a-zA-Z]*$/.test(name)) return "半角英数字ではありません"
+        console.log(!/^[0-9a-zA-Z]*$/);
         return ""
     }
     

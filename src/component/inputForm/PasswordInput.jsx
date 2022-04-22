@@ -3,10 +3,20 @@ import { useState, memo } from "react";
 
 export const PasswordInput = memo(() => {
     const [password, setPassword] = useState('');
+    console.log(password);
+
     const [confirm, setConfirm] = useState('');
+    console.log(confirm);
+
+    const isValid = password != null && password.trim().length > 0;
+    console.log(isValid);
 
     const bothFieldsAreFilled = password && confirm;
+    console.log(bothFieldsAreFilled);
+
     const passwordMatch = password === confirm;
+    console.log(passwordMatch);
+
 
     return(
         <div>
@@ -16,9 +26,10 @@ export const PasswordInput = memo(() => {
             </label>
             <input type="password"
                    name="password"
-                   value={password} 
-                   onChange={(e) => {setPassword(e.target.value)}} />
-            <button>Save</button>
+                   value={password}
+                   onChange={(e) => {setPassword(e.target.value)}}
+                   />
+            <button disabled={!isValid}>Save</button>
         </form>
         <form>
             <label>
@@ -47,6 +58,7 @@ export const PasswordInput = memo(() => {
             )
             ) : null
         }
+        <button disabled={!isValid}>Save</button>
         </form>
         </div>
     )
