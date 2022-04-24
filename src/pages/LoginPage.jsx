@@ -10,6 +10,8 @@ export const LoginPage = memo(() => {
   //  stateの定義
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
 
   // バリデーションチェックのロジック
   const nameErrorMessage = () => {
@@ -29,6 +31,16 @@ export const LoginPage = memo(() => {
     return "";
   };
 
+  const passwordErrorMessage = () => {
+    const bothFieldsAreFilled = password && confirm;
+    const passwordMatch = password === confirm;
+
+    if (!bothFieldsAreFilled)
+      return "パスワードとパスワード確認を入力してください";
+    if (!passwordMatch) return "パスワードが一致していません";
+    return "";
+  };
+
   //    stateを更新する関数たち
   const changeName = (e) => {
     setName(e.target.value);
@@ -38,19 +50,33 @@ export const LoginPage = memo(() => {
     setEmail(e.target.value);
   };
 
+  const changePass = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const changeConfirm = (e) => {
+    setConfirm(e.target.value);
+  };
+
   return (
     <div>
       <TextName
         name={name}
         onChange={changeName}
-        errorMessage={nameErrorMessage}
+        errorMessage={nameErrorMessage()}
       />
       <EmailAddressInput
         email={email}
         onChange={changeEmail}
-        errorMessage={emailErrorMessage}
+        errorMessage={emailErrorMessage()}
       />
-      <PasswordInput />
+      <PasswordInput
+        password={password}
+        onChangePass={changePass}
+        confirm={confirm}
+        onChangeConfirm={changeConfirm}
+        errorMessage={passwordErrorMessage()}
+      />
       <TelephoneNumberInput />
       <SubmitButton />
     </div>
