@@ -58,6 +58,11 @@ export const LoginPage = memo(() => {
     setConfirm(e.target.value);
   };
 
+  const sendUserInfo = () => {
+    console.log(name, email, password, confirm);
+    alert("送信したよ");
+  };
+
   return (
     <div>
       <TextName
@@ -77,8 +82,8 @@ export const LoginPage = memo(() => {
         onChangeConfirm={changeConfirm}
         errorMessage={passwordErrorMessage()}
       />
-      <TelephoneNumberInput />
-      <SubmitButton />
+      {/* <TelephoneNumberInput /> */}
+      <SubmitButton name={"保存"} onClick={sendUserInfo} />
     </div>
   );
 });
