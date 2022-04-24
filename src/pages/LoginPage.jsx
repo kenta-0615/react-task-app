@@ -7,9 +7,11 @@ import { SubmitButton } from "../component/Button/SubmitButton";
 import { memo } from "react";
 
 export const LoginPage = memo(() => {
+  //  stateの定義
   const [name, setName] = useState("");
-  console.log(name);
+  const [email, setEmail] = useState("");
 
+  // バリデーションチェックのロジック
   const nameErrorMessage = () => {
     if (name.length <= 0) return "必須入力です";
     console.log(name.length);
@@ -20,8 +22,20 @@ export const LoginPage = memo(() => {
     return "";
   };
 
+  const emailErrorMessage = () => {
+    const isValid = email != null && email.trim().length > 0;
+
+    if (!isValid) return "メールのバリデーションエラー";
+    return "";
+  };
+
+  //    stateを更新する関数たち
   const changeName = (e) => {
     setName(e.target.value);
+  };
+
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   return (
@@ -31,7 +45,11 @@ export const LoginPage = memo(() => {
         onChange={changeName}
         errorMessage={nameErrorMessage}
       />
-      <EmailAddressInput />
+      <EmailAddressInput
+        email={email}
+        onChange={changeEmail}
+        errorMessage={emailErrorMessage}
+      />
       <PasswordInput />
       <TelephoneNumberInput />
       <SubmitButton />
