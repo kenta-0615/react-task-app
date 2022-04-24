@@ -12,6 +12,8 @@ export const LoginPage = memo(() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [telephoneNumber, setTelephoneNumber] = useState("");
+
 
   // バリデーションチェックのロジック
   const nameErrorMessage = () => {
@@ -41,6 +43,15 @@ export const LoginPage = memo(() => {
     return "";
   };
 
+  //電話番号
+  const telephoneNumberErrorMessage = () => {
+    const isValid = telephoneNumber != null && telephoneNumber.trim().length > 0;
+
+    if(!isValid) return "電話番号を入力してください"; 
+
+    return "";
+  };
+
   //    stateを更新する関数たち
   const changeName = (e) => {
     setName(e.target.value);
@@ -58,10 +69,15 @@ export const LoginPage = memo(() => {
     setConfirm(e.target.value);
   };
 
+  const changeTelephoneNumber = (e) => {
+    setTelephoneNumber(e.target.value);
+  }
+
   const sendUserInfo = () => {
-    console.log(name, email, password, confirm);
+    console.log(name, email, password, confirm, telephoneNumber);
     alert("送信したよ");
   };
+
 
   return (
     <div>
@@ -82,7 +98,11 @@ export const LoginPage = memo(() => {
         onChangeConfirm={changeConfirm}
         errorMessage={passwordErrorMessage()}
       />
-      {/* <TelephoneNumberInput /> */}
+      <TelephoneNumberInput
+      telephoneNumber={telephoneNumber}
+      onChange={changeTelephoneNumber}
+      errorMessage={telephoneNumberErrorMessage()}
+      />
       <SubmitButton name={"保存"} onClick={sendUserInfo} />
     </div>
   );
