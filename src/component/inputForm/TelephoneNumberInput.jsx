@@ -8,10 +8,10 @@ export const TelephoneNumberInput = (p) => {
                 </label>
                 <input
                 name="telephoneNumber"
-                type="text"
-                onChange={p.onChange}
+                type="tel"
+                onChange={p.changeTel}
                 value={p.telephoneNumber} />
-            {p.telephoneNumberErrorMessage && <p>p.telephoneNumberErrorMessage</p>}
+            {p.telephoneNumberErrorMessage && <p>{p.telephoneNumberErrorMessage}</p>}
         </form>
     );
 };
