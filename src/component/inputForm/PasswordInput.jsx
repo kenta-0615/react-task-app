@@ -1,22 +1,27 @@
 import React from "react";
-import { useState, memo } from "react";
 
-export const PasswordInput = memo(() => {
-    const [password, setPassword] = useState;
-
-    const passwordErrorMessage = () => {
-        if(password.length <= 0) return 'パスワードを入力してください'
-    }
-
-
-    return(
-        <form action="/password" method="post">
-            <label>
-                PASS:
-            </label>
-            <input type="password" name="password" id="password" value={password} onChange={(e) => {setPassword(e.target.value)} } onClick={() => {}} />
-            {passwordErrorMessage().length > 0 && <p>{passwordErrorMessage}</p>}
-            <button>Save</button>
-        </form>
-    )
-});
+export const PasswordInput = (p) => {
+  return (
+    <div>
+      <form>
+        <label>PASS:</label>
+        <input
+          type="password"
+          name="password"
+          value={p.password}
+          onChange={p.onChangePass}
+        />
+      </form>
+      <form>
+        <label>REPASS:</label>
+        <input
+          type="password"
+          name="confirm"
+          value={p.confirm}
+          onChange={p.onChangeConfirm}
+        />
+        {p.errorMessage && <p>{p.errorMessage}</p>}
+      </form>
+    </div>
+  );
+};
