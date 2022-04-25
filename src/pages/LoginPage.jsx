@@ -14,7 +14,6 @@ export const LoginPage = memo(() => {
   const [confirm, setConfirm] = useState("");
   const [telephoneNumber, setTelephoneNumber] = useState("");
 
-
   // バリデーションチェックのロジック
   const nameErrorMessage = () => {
     if (name.length <= 0) return "必須入力です";
@@ -37,8 +36,7 @@ export const LoginPage = memo(() => {
     const bothFieldsAreFilled = password && confirm;
     const passwordMatch = password === confirm;
 
-    if (!bothFieldsAreFilled)
-      return "パスワードとパスワード確認を入力してください";
+    if (!bothFieldsAreFilled) return "パスワードとパスワード確認を入力してください";
     if (!passwordMatch) return "パスワードが一致していません";
     return "";
   };
@@ -71,6 +69,11 @@ export const LoginPage = memo(() => {
     setTelephoneNumber(e.target.value);
   }
 
+    
+  const canButtonNotClick = nameErrorMessage().length > 0 || emailErrorMessage().length >0 || passwordErrorMessage().length >0 || telephoneNumberErrorMessage().length >0;
+
+
+
   const sendUserInfo = () => {
     console.log(name, email, password, confirm, telephoneNumber);
     alert("送信したよ");
@@ -101,7 +104,7 @@ export const LoginPage = memo(() => {
       changeTel={changeTel}
       telephoneNumberErrorMessage={telephoneNumberErrorMessage()}
       />
-      <SubmitButton name={"保存"}  onClick={sendUserInfo} />
+      <SubmitButton name={"保存"}  onClick={sendUserInfo} disabled={canButtonNotClick} />
     </div>
   );
 });
