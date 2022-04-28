@@ -6,6 +6,15 @@
 
 https://www.notion.so/taishi-shinoda/d9d5256722bc4ee3911204a3ef3b335c
 
+# 環境の立ち上げ方
+
+- このリポジトリをクローン
+- package の install
+  - `yarn install` or `npm install`
+- ローカル環境立ち上げ
+  - `yarn start`
+  - `npm run start`
+
 # ディレクトリ構成
 
 - src/
