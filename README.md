@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# このリポジトリについて
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React のスキルアップための学習リポジトリです
 
-## Available Scripts
+# 課題内容
 
-In the project directory, you can run:
+https://www.notion.so/taishi-shinoda/d9d5256722bc4ee3911204a3ef3b335c
 
-### `npm start`
+# 環境の立ち上げ方
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- このリポジトリをクローン
+- package の install
+  - `yarn install` or `npm install`
+- ローカル環境立ち上げ
+  - `yarn start`
+  - `npm run start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# ディレクトリ構成
 
-### `npm test`
+- src/
+  - components/
+    - コンポーネント置き場
+    - button や input など役割に応じて作る
+  - pages/
+    - ページ置き場
+    - 各課題ごとにページを作っています
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 課題を終えた時の姿
 
-### `npm run build`
+- html/css を理解している
+- JavaScript の基礎を理解している
+- git / github を利用した開発ができる
+- React.js の基本を理解している
+  - コンポーネント設計
+  - useState を利用した状態管理ができる
+  - 画面遷移(react-router-dom)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+※React.js は関数コンポーネントのみ扱う
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# レビューガイドライン
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 非同期コミュニケーションができているか
+  - 文章でのやり取り
+  - 修正の連絡など
+- 命名が適切であるか
+  - コードの変数
+  - ブランチ名
+  - コミットタイトル
+- チーム開発手法に則って進めれているか
+  - PR ベースの開発
+- コンポーネントが再利用を意識して作られているか
+  - ベタな HTML を書いていない
+- useState を利用して状態管理ロジックが実装できているか
+- react-router-dom を利用してページごとに画面遷移できているか
