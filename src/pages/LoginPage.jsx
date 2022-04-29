@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { TextName } from "../component/inputForm/TextName";
-import { EmailAddressInput } from "../component/inputForm/EmailAddressInput";
-import { PasswordInput } from "../component/inputForm/PasswordInput";
-import { TelephoneNumberInput } from "../component/inputForm/TelephoneNumberInput";
-import { SubmitButton } from "../component/Button/SubmitButton";
+import { TextName } from "../components/TextName";
+import { EmailAddressInput } from "../components/EmailAddressInput";
+import { PasswordInput } from "../components/PasswordInput";
+import { TelephoneNumberInput } from "../components/TelephoneNumberInput";
+import { SubmitButton } from "../components/SubmitButton";
 import { memo } from "react";
 
 export const LoginPage = memo(() => {

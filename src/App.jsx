@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Menu } from "./pages/Menu";
+import { Menu } from "./components/Menu";
 import { LoginPage } from "./pages/LoginPage";
 import { Task2Page } from "./pages/Task2Page";
 
