@@ -18,7 +18,6 @@ export const TextName: React.FC<Props> = (p) => {
 						placeholder="Enter your name"
 						value={p.name}
 						onChange={p.onChange}
-						onClick={() => {}}
 					/>
 					{p.errorMessage && <p>{p.errorMessage}</p>}
 				</label>

@@ -5,7 +5,7 @@ type Props = {
 	confirmPassword: string | number;
 	onChangePass: (event: any) => void;
 	onChangeConfirm: (event: any) => void;
-	errorMessage: string;
+	errorMessage?: string;
 };
 
 export const PasswordInput: React.FC<Props> = (p) => {
