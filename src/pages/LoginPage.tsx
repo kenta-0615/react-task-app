@@ -42,8 +42,8 @@ export const LoginPage: React.FC = () => {
 		return "";
 	};
 
-	const telephoneNumberErrorMessage = () => {
-		console.log(telephoneNumberErrorMessage);
+	const telephoneErrorMessage = () => {
+		console.log(telephoneErrorMessage);
 		if (telephoneNumber.length <= 0) return "電話番号を入力してください";
 		if (!/[0-9]{1,4}/.test(telephoneNumber)) return "正しく入力してください";
 		return "";
@@ -74,7 +74,7 @@ export const LoginPage: React.FC = () => {
 		nameErrorMessage().length > 0 ||
 		emailErrorMessage().length > 0 ||
 		passwordErrorMessage().length > 0 ||
-		telephoneNumberErrorMessage().length > 0;
+		telephoneErrorMessage().length > 0;
 
 	const sendUserInfo = () => {
 		console.log(name, email, password, confirm, telephoneNumber);
@@ -101,9 +101,9 @@ export const LoginPage: React.FC = () => {
 				errorMessage={passwordErrorMessage()}
 			/>
 			<TelephoneNumberInput
-				telephoneNumber={telephoneNumber}
-				changeTel={changeTel}
-				telephoneNumberErrorMessage={telephoneNumberErrorMessage()}
+				value={telephoneNumber}
+				onChange={changeTel}
+				errorMessage={telephoneErrorMessage()}
 			/>
 			<SubmitButton
 				submitName={"保存"}

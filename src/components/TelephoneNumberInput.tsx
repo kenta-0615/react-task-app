@@ -1,9 +1,9 @@
 import React from "react";
 
 type Props = {
-	changeTel: (event: any) => void;
-	telephoneNumber: number | string;
-	telephoneNumberErrorMessage?: string;
+	onChange: (event: any) => void;
+	value: number | string;
+	errorMessage?: string;
 };
 
 export const TelephoneNumberInput: React.FC<Props> = (p) => {
@@ -13,10 +13,10 @@ export const TelephoneNumberInput: React.FC<Props> = (p) => {
 			<input
 				name="telephoneNumber"
 				type="tel"
-				onChange={p.changeTel}
-				value={p.telephoneNumber}
+				onChange={p.onChange}
+				value={p.value}
 			/>
-			{p.telephoneNumberErrorMessage && <p>{p.telephoneNumberErrorMessage}</p>}
+			{p.errorMessage && <p>{p.errorMessage}</p>}
 		</form>
 	);
 };
