@@ -4,9 +4,8 @@ import { EmailAddressInput } from "../components/EmailAddressInput";
 import { PasswordInput } from "../components/PasswordInput";
 import { TelephoneNumberInput } from "../components/TelephoneNumberInput";
 import { SubmitButton } from "../components/SubmitButton";
-import { memo } from "react";
 
-export const LoginPage = memo(() => {
+export const LoginPage: React.FC = () => {
 	//  stateの定義
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -43,8 +42,8 @@ export const LoginPage = memo(() => {
 		return "";
 	};
 
-	const telephoneNumberErrorMessage = () => {
-		console.log(telephoneNumberErrorMessage);
+	const telephoneErrorMessage = () => {
+		console.log(telephoneErrorMessage);
 		if (telephoneNumber.length <= 0) return "電話番号を入力してください";
 		if (!/[0-9]{1,4}/.test(telephoneNumber)) return "正しく入力してください";
 		return "";
@@ -75,7 +74,7 @@ export const LoginPage = memo(() => {
 		nameErrorMessage().length > 0 ||
 		emailErrorMessage().length > 0 ||
 		passwordErrorMessage().length > 0 ||
-		telephoneNumberErrorMessage().length > 0;
+		telephoneErrorMessage().length > 0;
 
 	const sendUserInfo = () => {
 		console.log(name, email, password, confirm, telephoneNumber);
@@ -97,20 +96,20 @@ export const LoginPage = memo(() => {
 			<PasswordInput
 				password={password}
 				onChangePass={changePass}
-				confirm={confirm}
+				confirmPassword={confirm}
 				onChangeConfirm={changeConfirm}
 				errorMessage={passwordErrorMessage()}
 			/>
 			<TelephoneNumberInput
-				telephoneNumber={telephoneNumber}
-				changeTel={changeTel}
-				telephoneNumberErrorMessage={telephoneNumberErrorMessage()}
+				value={telephoneNumber}
+				onChange={changeTel}
+				errorMessage={telephoneErrorMessage()}
 			/>
 			<SubmitButton
-				name={"保存"}
+				submitName={"保存"}
 				onClick={sendUserInfo}
 				disabled={canButtonNotClick}
 			/>
 		</div>
 	);
-});
+};

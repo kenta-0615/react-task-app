@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Menu = () => {
+export const Menu: React.FC = () => {
 	return (
 		<ul>
 			<li>

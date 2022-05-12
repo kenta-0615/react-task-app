@@ -4,7 +4,7 @@ import { Menu } from "./components/Menu";
 import { LoginPage } from "./pages/LoginPage";
 import { Task2Page } from "./pages/Task2Page";
 
-export const App = () => {
+export const App: React.FC = () => {
 	return (
 		<>
 			<Menu />
